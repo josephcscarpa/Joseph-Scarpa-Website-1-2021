@@ -1,4 +1,4 @@
-Pico
+Joseph Scarpa - Website 1 in 2021
 ====
 
 [![License](https://picocms.github.io/badges/pico-license.svg)](https://github.com/picocms/pico-composer/blob/master/LICENSE)
