@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- ... -->
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link href="{{ theme_url }}/frontend/css/output.css" rel="stylesheet">
+		<link href="{{ theme_url }}/frontend/css/mouse.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"><script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+		<script src="{{ theme_url }}/frontend/js/menu.js"></script>
+		<script src="{{ theme_url }}/frontend/node_modules/waypoints/lib/noframework.waypoints.min.js "></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+
+	</head>
+	<body
+		class=" container mx-auto max-w-5xl px-8 lg:px-0">
+		<!-- This example requires Tailwind CSS v2.0+ -->
+		<div id="preload-waiter" class="display-none"></div>
+		<nav class="">
+			<div>
+				<div class="relative flex items-center justify-between h-16">
+					<div
+						class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+						<!-- Mobile menu button-->
+						<button id="nav-list" class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false" onclick="navToggle()" style="opacity: 0; position: relative; top: -100px;">
+							<span class="sr-only">Open main menu</span>
+							<!-- Icon when menu is closed. -->
+							<!--
+							              Heroicon name: menu
+							  
+							              Menu open: "hidden", Menu closed: "block"
+							            -->
+							<svg id="menu-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+							</svg>
+							<!-- Icon when menu is open. -->
+							<!--
+							              Heroicon name: x
+							  
+							              Menu open: "block", Menu closed: "hidden"
+							            -->
+							<svg id="menu-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+							</svg>
+						</button>
+					</div>
+					<div class="flex-1 flex items-center  sm:items-stretch sm:justify-start">
+						<div class="flex-shrink-0 flex items-center">
+							<h3 id="nav-title" class="text-regal-blue-900 font-medium text-2xl text-white" style="opacity: 0; position: relative; top: -100px;">Joseph Scarpa</h3>
+						</div>
+
+					</div>
+					<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+						<div class="hidden sm:block sm:ml-6">
+							<div
+								id="nav-list" class="flex space-x-4 opacity-0" style="opacity: 0; position: relative; top: -100px;">
+								<!-- Refactor -->
+								{% for page in pages if page.author == "Menu" %}
+									<a href="{{page.url}}" class=" px-3 py-2 rounded-md text-sm font-medium block w-full {% if page.id == current_page.id %} bg-gray-900 text-white{% else %} text-gray-900 hover:text-gray-700 {% endif %} ">{{page.title}}</a>
+								{% endfor %}
+
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!--
+				      Mobile menu, toggle classes based on menu state.
+				  
+				      Menu open: "block", Menu closed: "hidden"
+				    -->
+				<div id="menu" class="z-10 hidden sm:hidden">
+					<div class="px-2 pt-2 pb-3 space-y-1">
+						{% for page in pages if page.author == "Menu" %}
+							<a href="{{page.url}}" class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium block w-full">{{page.title}}</a>
+						{% endfor %}
+						<a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium block w-full">About Me</a>
+
+
+					</div>
+				</div>
+			</nav>
+			<div class="flex flex-row justify-center">
+				<div class="max-w-5xl">
+					<section id="welcome" class="h-screen justify-center flex flex-col">
+						<div class="flex flex-row justify-center">
+							<div>
+								<p id="name-intro" class="font-main-sans text-regal-blue-900 text-lg" style="opacity: 0; position: relative; top: -100px;">Hi, my name is</p>
+								<h1 id="name" class="text-regal-blue-900 font-medium py-2 font-main-sans text-3xl sm:text-6xl text-white" style="opacity: 0; position: relative; top: -100px;">Joseph Scarpa.</h1>
+								<h1 id="tagline" class="font-medium font-main-sans py-2 text-xl sm:text-4xl text-misty-lavender-900" style="opacity: 0; position: relative; top: -100px;">I'm a computer science and philosophy student who does front-end web development.</h2>
+								<br>
+								<p id="paragraph-bio" class="" style="opacity: 0; position: relative; top: 100px;">I am a student at
+									<a href="https://duke.edu/">Duke University</a>
+									studying for an
+									<a>interdisciplinary major
+										           in computer science and math</a>
+									and a major in
+									<a href="philosophy"></a>. When not stressing over finals,
+									<a href="">I can be found programming for the web</a>
+									or
+									<a href="">
+										playing the pipe-organ</a>
+								</p>
+								<br>
+								<button id="learn-more" class="btn-blue" style="opacity: 0; transform: scale(.5)" s>
+									<a href="#about-shortcut">Learn More</a>
+								</button>
+								<br>
+								<br>
+								<br>
+								<div class="flex justify-center">
+									<div id="scroll-mouse" class="mouse" style="opacity: 0; position: relative;"></div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+					<div id="about-shortcut"></div>
+					<section class="flex flex-row justify-center " id="about-me" style="opacity: 0; position: relative; top: 100px;">
+						<div>
+							<div class="grid lg:grid-cols-4 ">
+
+								<div class="col-span-2 ...">
+									<h2 class="font-main-sans font-medium text-3xl text-regal-blue-900 ">01. About Me:
+									</h2>
+
+									<br>
+									<p class="text-regal-blue-900">I am based in Long Island, NY and I am completing a bachelors degree at Duke University in North Carolina.
+									</p>
+									<br>
+									<p class="text-regal-blue-900">Professionally, I am seeking internships in computer science fields, with a special interest in machine learning and natural language processing. I also work as a web developer, creating websites for clients and for free to non-profits.
+									</p>
+									<br>
+									<p class="text-regal-blue-900">Academically, I seek to take rigorous classes and to perform research in computer science, philosophy. Particular interests are epistemology, philosophy of mind, philosophy of mathematics, and computing ethics. For computer science, I am interested in theory and applications in machine learning, optimization, and natural language processing. I am studying them as deeply as possible while at Duke University.
+									</p>
+								</div>
+								<div class="col-span-2 text-center pl-10 pr-10">
+									<br>
+									<img style="" class="max-w-xs w-6/12 md:w-8/12 block text-center ml-auto mr-auto" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png">
+								</div>
+
+
+							</div>
+						</div>
+					</section>
+					<section id="resume" class="flex flex-row  py-40" style="opacity: 0; position: relative; top: 100px;">
+						<div>
+							<h2 class="text-3xl font-main-sans font-medium text-regal-blue-900">02. Resumes</h2>
+							<br>
+							<button class="btn-blue">Technical Resume</button>
+							<br>
+							<br>
+							<button class="btn-blue">Academic Resume</button>
+							<br>
+							<br>
+							<button class="btn-blue">Organ Performance Resume</button>
+							<button class="btn-blue">Church Organ Resume</button>
+						</div>
+					</section>
+
+					<section id="contact-me" style="opacity: 0; position: relative; top: 100px;">
+						<h2 class="text-3xl font-main-sans font-medium text-regal-blue-900">3. Contact Me</h2>
+						<br>
+						<p class="text-regal-blue-900">I am always up for internship opportunities and making new connections. Please feel free to leave a message below and I'll get back to you shortly.</p>
+						<br>
+						<button class="btn-blue">
+							<a href="mailto:josephcscarpa@gmail.com">Contact Me</a>
+						</button>
+						<br>
+						<br>
+					</section>
+
+					<footer>
+						<hr>
+						<br>
+						<div class="flex justify-center">
+							<p>
+								Connect with me on
+								<a href="https://github.com/josephcscarpa">
+									<u>LinkedIn</u>
+								</a>
+								and follow me on
+								<a href="https://twitter.com/josephcscarp">
+									<u>Twitter</u>
+								</a>
+								and
+								<a href="https://github.com/josephcscarpa">
+									<u>Github</u>
+								</a>.
+								<br>
+								<a href="http://captivectdesign.com">Design by Captivect.</a>
+							</p>
+						</div>
+						<br>
+					</footer>
+				</div>
+        </div>
+				<script>
+					var tl = anime.timeline({easing: 'easeOutExpo', duration: 750});
+
+// Add children
+tl.add({targets: '#preload-waiter', opacity: 1, duration: 200}).add({targets: '#nav-title', opacity: 1, translateY: 100, duration: 200}).add({targets: '#nav-list', opacity: 1, translateY: 100, duration: 200}).add({targets: '#name-intro', opacity: 1, translateY: 100, duration: 200}).add({targets: '#name', opacity: 1, translateY: 100, duration: 200}).add({targets: '#tagline', opacity: 1, translateY: 100, duration: 200}).add({targets: '#paragraph-bio', opacity: 1, translateY: -100, duration: 200}).add({targets: '#learn-more', opacity: 1, scale: 1, duration: 200}).add({targets: '#scroll-mouse', opacity: 1, duration: 1000})
+let aboutCardAnimation = anime({
+targets: '#about-me',
+// Properties
+translateY: -100,
+opacity: 1,
+duration: 200,
+easing: 'linear',
+autoplay: false
+});
+let resumeCardAnimation = anime({
+targets: '#resume',
+// Properties
+translateY: -100,
+opacity: 1,
+duration: 200,
+easing: 'linear',
+autoplay: false
+});
+let contactCardAnimation = anime({
+targets: '#contact-me',
+// Properties
+translateY: -100,
+opacity: 1,
+duration: 200,
+easing: 'linear',
+autoplay: false
+});
+var isAboutCardTriggered = false;
+var isResumeCardTriggered = false;
+var isContactCardTriggered = false;
+var waypoint = new Waypoint({
+element: document.getElementById('about-me'),
+handler: function (direction) {
+if (! isAboutCardTriggered) {
+aboutCardAnimation.play();
+isAboutCardTriggered = true;
+}
+},
+offset: '60%'
+})
+var waypoint = new Waypoint({
+element: document.getElementById('resume'),
+handler: function (direction) {
+if (! isResumeCardTriggered) {
+resumeCardAnimation.play();
+isResumeCardTriggered = true;
+}
+},
+offset: '60%'
+})
+var waypoint = new Waypoint({
+element: document.getElementById('contact-me'),
+handler: function (direction) {
+if (! isContactCardTriggered) {
+contactCardAnimation.play();
+isContactCardTriggered = true;
+}
+},
+offset: '90%'
+})
+				</script>
+
+			</body>
+		</html>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<!--
+Strata by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<!-- ... -->
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link href="{{ theme_url }}/frontend/css/output.css" rel="stylesheet">
+		<link href="{{ theme_url }}/frontend/css/mouse.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"><script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+		<script src="{{ theme_url }}/frontend/js/menu.js"></script>
+		<script src="{{ theme_url }}/frontend/node_modules/waypoints/lib/noframework.waypoints.min.js "></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+
+	</head>
+	<body class="container mx-auto max-w-5xl px-8 lg:px-0 ">
+		<nav class="">
+			<div>
+				<div class="relative flex items-center justify-between h-16">
+					<div
+						class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+						<!-- Mobile menu button-->
+						<button id="nav-list" class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false" onclick="navToggle()" style="opacity: 0; position: relative; top: -100px;">
+							<span class="sr-only">Open main menu</span>
+							<!-- Icon when menu is closed. -->
+							<!--
+																					              Heroicon name: menu
+																					  
+																					              Menu open: "hidden", Menu closed: "block"
+																					            -->
+							<svg id="menu-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+							</svg>
+							<!-- Icon when menu is open. -->
+							<!--
+																					              Heroicon name: x
+																					  
+																					              Menu open: "block", Menu closed: "hidden"
+																					            -->
+							<svg id="menu-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+							</svg>
+						</button>
+					</div>
+					<div class="flex-1 flex items-center  sm:items-stretch sm:justify-start">
+						<div class="flex-shrink-0 flex items-center">
+							<h3 id="nav-title" class="text-regal-blue-900 font-medium text-2xl text-white" style="opacity: 0; position: relative; top: -100px;">Joseph Scarpa</h3>
+						</div>
+
+					</div>
+					<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+						<div class="hidden sm:block sm:ml-6">
+							<div
+								id="nav-list" class="flex space-x-4 opacity-0" style="opacity: 0; position: relative; top: -100px;">
+								<!-- Refactor -->
+								{% for page in pages if page.author == "Menu" %}
+									<a href="{{page.url}}" class=" px-3 py-2 rounded-md text-sm font-medium block w-full {% if page.id == current_page.id %} bg-gray-900 text-white{% else %} text-gray-900 hover:text-gray-700 {% endif %} ">{{page.title}}</a>
+								{% endfor %}
+
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!--
+												      Mobile menu, toggle classes based on menu state.
+												  
+												      Menu open: "block", Menu closed: "hidden"
+												    -->
+				<div id="menu" class="z-10 hidden sm:hidden">
+					<div class="px-2 pt-2 pb-3 space-y-1">
+						{% for page in pages if page.author == "Menu" %}
+							<a href="{{page.url}}" class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium block w-full">{{page.title}}</a>
+						{% endfor %}
+						<a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium block w-full">About Me</a>
+
+
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="flex flex-row justify-center">
+			<div class="max-w-5xl">
+				<section id="header" class=" justify-center flex flex-col">
+					<div>
+						<br>
+						<h1 id="title" class="text-regal-blue-900 font-medium py-2 font-main-sans text-4xl text-white" style="opacity: 0; position: relative; top: -100px;">{{meta.title}}</h1>
+						<h1 id="tagline" class=" font-medium font-main-sans py-2 text-2xl text-misty-lavender-900" style="opacity: 0; position: relative; top: -100px;">{{meta.description}}</h2>
+						<br>
+						<hr id="divider" style="opacity: 0; position: relative; top: -100px;">
+
+					</div>
+				</section>
+				<section id="content" style="opacity: 0; position: relative; top: 50px;">
+					{{content}}
+				</section>
+
+				<footer>
+					<hr>
+					<br>
+					<div class="flex justify-center">
+						<p>
+							Connect with me on
+							<a href="https://github.com/josephcscarpa">
+								<u>LinkedIn</u>
+							</a>
+							and follow me on
+							<a href="https://twitter.com/josephcscarp">
+								<u>Twitter</u>
+							</a>
+							and
+							<a href="https://github.com/josephcscarpa">
+								<u>Github</u>
+							</a>.
+							<br>
+							<a href="http://captivectdesign.com">Design by Captivect.</a>
+						</p>
+					</div>
+					<br>
+				</footer>
+			</div>
+		</div>
+
+		<script src="frontend/js/menu.js"></script>
+		<script>
+			var tl = anime.timeline({easing: 'easeOutExpo', duration: 750});
+// Add children
+tl.add({targets: '#preload-waiter', opacity: 1, duration: 200}).add({targets: '#nav-title', opacity: 1, translateY: 100, duration: 200}).add({targets: '#nav-list', opacity: 1, translateY: 100, duration: 200}).add({targets: '#title', opacity: 1, translateY: 100, duration: 200}).add({targets: '#tagline', opacity: 1, translateY: 100, duration: 200}).add({targets: '#divider', opacity: 1, translateY: 100, duration: 400}).add({targets: '#content', opacity: 1, duration: 600, translateY: -50})
+		</script>
+	</body>
+</html></body></html>

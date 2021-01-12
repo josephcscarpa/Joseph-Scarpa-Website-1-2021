@@ -1,0 +1,27 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build ./css/styles.css -o ./css/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephcscarpa/My-Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephcscarpa/My-Website/issues"
+  },
+  "homepage": "https://github.com/josephcscarpa/My-Website#readme",
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "autoprefixer": "^10.1.0",
+    "postcss": "^8.2.0",
+    "tailwindcss": "^2.0.1",
+    "waypoints": "^4.0.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
