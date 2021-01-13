@@ -77,7 +77,7 @@
 				<div id="menu" class="z-10 hidden sm:hidden">
 					<div class="px-2 pt-2 pb-3 space-y-1">
 						{% for page in pages if page.author == "Menu" %}
-							<a href="{{page.url}}" class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium block w-full">{{page.title}}</a>
+							<a href="{{page.url}}" class="px-3 py-2 rounded-md text-sm font-medium block w-full {% if page.id == current_page.id %} bg-gray-900 text-white{% else %} text-gray-900 hover:text-gray-700 {% endif %} ">{{page.title}}</a>
 						{% endfor %}
 						
 
@@ -91,7 +91,7 @@
 						<div class="flex flex-row justify-center">
 							<div>
 								<p id="name-intro" class="font-main-sans text-regal-blue-900 text-lg" style="opacity: 0; position: relative; top: -100px;">Hi, my name is</p>
-								<h1 id="name" class="text-regal-blue-900 font-medium py-2 font-main-sans text-3xl sm:text-6xl text-white" style="opacity: 0; position: relative; top: -100px;">Joseph Scarpa.</h1>
+								<h1 id="name" class="text-regal-blue-900 font-medium py-2 font-main-sans text-4xl sm:text-6xl text-white" style="opacity: 0; position: relative; top: -100px;">Joseph Scarpa.</h1>
 								<h1 id="tagline" class="font-medium font-main-sans py-2 text-xl sm:text-4xl text-misty-lavender-900" style="opacity: 0; position: relative; top: -100px;">I'm a computer science and philosophy student who does front-end web development.</h2>
 								<br>
 								<p id="paragraph-bio" class="" style="opacity: 0; position: relative; top: 100px;">I am a student at
@@ -158,7 +158,7 @@
 							<button class="btn-blue">Academic Resume</button>
 							<br>
 							<br>
-							<button class="btn-blue">Organ Performance Resume</button>
+							<button class="btn-blue mb-5 ">Organ Performance Resume</button>
 							<button class="btn-blue">Church Organ Resume</button>
 						</div>
 					</section>

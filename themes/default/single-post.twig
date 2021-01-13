@@ -60,9 +60,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							<div
 								id="nav-list" class="flex space-x-4 opacity-0" style="opacity: 0; position: relative; top: -100px;">
 								<!-- Refactor -->
-								{% for page in pages if page.author == "Menu" %}
+									{% for page in pages if page.author == "Menu" %}
 									<a href="{{page.url}}" class=" px-3 py-2 rounded-md text-sm font-medium block w-full {% if page.id == current_page.id %} bg-gray-900 text-white{% else %} text-gray-900 hover:text-gray-700 {% endif %} ">{{page.title}}</a>
 								{% endfor %}
+
 
 
 							</div>
