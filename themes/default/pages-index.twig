@@ -105,7 +105,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 						</div>
 					</section>
-					<section id="posts" style="opacity: 0; position: relative; top: -100px;">
+					<section id="posts" style="opacity: 0; ">
 						{% for page in pages|sort_by("time")|reverse %}
 							{% if page.id starts with "blog/" and not page.hidden %}
 								<div type="post">
